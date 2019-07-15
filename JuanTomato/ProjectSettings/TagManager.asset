@@ -9,6 +9,8 @@ TagManager:
   - sal
   - left
   - right
+  - aparato
+  - spawnpoint
   layers:
   - Default
   - TransparentFX
