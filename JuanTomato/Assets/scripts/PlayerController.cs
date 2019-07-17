@@ -3,7 +3,8 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
-	public float m_JumpForce = 400f;							// Amount of force added when the player jumps.
+	public float Jumper = 400f;	
+	float m_JumpForce; 						// Amount of force added when the player jumps.
 	[Range(0, 1)] public float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
 	[Range(0, .3f)] public float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	public bool m_AirControl = false;							// Whether or not a player can steer while jumping;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
 	private void Awake()
 	{
+		m_JumpForce = Jumper; 
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
 		if (OnLandEvent == null)
@@ -142,5 +144,15 @@ public class PlayerController : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+	private void OnTriggerStay2D(Collider2D other) {
+		if(other.gameObject.tag == "superJump"){
+			m_JumpForce = Jumper*2; 
+		}
+	}
+	private void OnTriggerExit2D(Collider2D other) {
+		if(other.gameObject.tag == "superJump"){
+			m_JumpForce = Jumper; 
+		}
 	}
 }

@@ -8,9 +8,8 @@ public class palitoController : MonoBehaviour
     private void Update() {
         transform.Translate((Vector3.up * Time.deltaTime)*speed);
     }
-    private void OnCollisionEnter2D(Collision2D other){
-        if(other.collider.tag == "aparato")
-        {
+    private void OnTriggerEnter2D(Collider2D other){
+        if(other.gameObject.tag == "aparato"){
             Destroy(gameObject); 
         }
     }

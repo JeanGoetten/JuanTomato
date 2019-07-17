@@ -316,5 +316,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: finish6
       objectReference: {fileID: 0}
+    - target: {fileID: 4596067072273886985, guid: 4afa01b3f22bdab4498678010e783fe9,
+        type: 3}
+      propertyPath: m_TagString
+      value: finish6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4afa01b3f22bdab4498678010e783fe9, type: 3}
