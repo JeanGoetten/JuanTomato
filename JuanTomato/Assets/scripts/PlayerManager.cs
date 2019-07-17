@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class PlayerManager : MonoBehaviour
 {
-    public GameObject spawnPoint; 
+    public GameObject camera; 
     Transform lastSave; 
     private int sal = 0; 
     private void Start() {
-        lastSave = spawnPoint.transform;
+        transform.position = new Vector3(0f, 0f, 0f); 
+
+        DontDestroyOnLoad(this.gameObject); 
+        DontDestroyOnLoad(camera); 
     }
     private void OnCollisionEnter2D(Collision2D other){
         if(other.collider.tag == "spawnpoint"){
@@ -23,6 +27,42 @@ public class PlayerManager : MonoBehaviour
             sal++; 
             print("Sal Coletado: " + sal); 
             Destroy(other.gameObject);
+        }
+        if(other.collider.tag == "finish")
+        {
+            SceneManager.LoadScene("Fase2"); 
+            transform.position = new Vector3(0f, 0f, 0f); 
+        }
+        if(other.collider.tag == "finish2")
+        {
+            SceneManager.LoadScene("Fase3"); 
+            transform.position = new Vector3(0f, 0f, 0f); 
+        }
+        if(other.collider.tag == "finish3")
+        {
+            SceneManager.LoadScene("Fase4"); 
+            transform.position = new Vector3(0f, 0f, 0f); 
+        }
+        if(other.collider.tag == "finish4")
+        {
+            SceneManager.LoadScene("Fase5"); 
+            transform.position = new Vector3(0f, 0f, 0f); 
+        }
+        if(other.collider.tag == "finish5")
+        {
+            SceneManager.LoadScene("Fase6"); 
+            transform.position = new Vector3(0f, 0f, 0f); 
+        }
+        if(other.collider.tag == "finish6")
+        {
+            Destroy(camera); 
+            SceneManager.LoadScene("Final"); 
+            transform.position = new Vector3(0f, 0f, 0f); 
+        }
+        if(other.collider.tag == "final")
+        {
+            SceneManager.LoadScene("Menu"); 
+            Destroy(this.gameObject);
         }
     }
 }

@@ -11,6 +11,14 @@ TagManager:
   - right
   - aparato
   - spawnpoint
+  - finish
+  - start
+  - finish2
+  - finish3
+  - finish4
+  - finish5
+  - finish6
+  - final
   layers:
   - Default
   - TransparentFX
