@@ -9,8 +9,14 @@ public class PlayerManager : MonoBehaviour
     public GameObject explosion; 
     Transform lastSave; 
     private int sal = 0; 
+    AudioSource audioSource; 
+    public AudioClip respawFX;
+    public AudioClip finishFX;
+    public AudioClip salFX;
     private void Start() {
         transform.position = new Vector3(0f, 0f, 0f); 
+
+        audioSource = GetComponent<AudioSource>(); 
 
         DontDestroyOnLoad(this.gameObject); 
         DontDestroyOnLoad(camera); 
@@ -21,15 +27,19 @@ public class PlayerManager : MonoBehaviour
             sal++; 
             print("Sal Coletado: " + sal); 
             Destroy(other.gameObject);
+            audioSource.PlayOneShot(salFX, 1.0f); 
         }
         if(other.gameObject.tag == "spawnpoint"){
             lastSave = other.gameObject.transform; 
         }
         if(other.gameObject.tag == "finish")
         {
+            audioSource.PlayOneShot(finishFX, 1.0f); 
+
             Destroy(camera); 
             SceneManager.LoadScene("Final"); 
             transform.position = new Vector3(0f, 0f, 0f); 
+            
             // SceneManager.LoadScene("Fase2"); 
             // transform.position = new Vector3(0f, 0f, 0f); 
         }
@@ -66,16 +76,8 @@ public class PlayerManager : MonoBehaviour
         }
         if(other.gameObject.tag == "enemy")
         {
-            Instantiate(explosion, transform.position, Quaternion.identity);
-            this.transform.position = lastSave.position;
-        }
-        if(other.gameObject.tag == "palito")
-        {
-            Instantiate(explosion, transform.position, Quaternion.identity);
-            this.transform.position = lastSave.position;
-        }
-        if(other.gameObject.tag == "saw")
-        {   
+            audioSource.PlayOneShot(respawFX, 0.7f); 
+
             Instantiate(explosion, transform.position, Quaternion.identity);
             this.transform.position = lastSave.position;
         }
@@ -83,6 +85,8 @@ public class PlayerManager : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.collider.tag == "almondega")
         {
+            audioSource.PlayOneShot(respawFX, 0.7f); 
+
             Instantiate(explosion, transform.position, Quaternion.identity);
             this.transform.position = lastSave.position;
         }

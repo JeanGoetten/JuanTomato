@@ -33,11 +33,17 @@ public class PlayerController : MonoBehaviour
 	private bool m_wasCrouching = false;
 	Animator anim; 
 
+	AudioSource audioSource; 
+    public AudioClip[] jumpFX;
+    AudioClip jumpList; 
+
 	private void Awake()
 	{
 		m_JumpForce = Jumper; 
 		anim = GetComponent<Animator>(); 
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+
+		audioSource = GetComponent<AudioSource>(); 
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
@@ -134,6 +140,10 @@ public class PlayerController : MonoBehaviour
 			// Add a vertical force to the player.
 			m_Grounded = false;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			
+			jumpList = jumpFX[UnityEngine.Random.Range(0, jumpFX.Length)];
+            audioSource.clip = jumpList; 
+            audioSource.Play(); 
 		}
 		if(m_Grounded){
 			anim.SetBool("jump", false); 

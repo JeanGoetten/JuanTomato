@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,14 +9,15 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 40f; 
     float horizontalMove = 0f;   
     bool jump = false;   
+    private void Start() {
+    }
 
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed; 
-
         if(Input.GetButtonDown("Jump")){
             jump = true; 
         }
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed; 
     }
     private void FixedUpdate() {
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);    

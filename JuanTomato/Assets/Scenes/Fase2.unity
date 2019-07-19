@@ -30289,11 +30289,11 @@ Transform:
   - {fileID: 299105191}
   - {fileID: 1475785161}
   - {fileID: 1903336621}
+  - {fileID: 1957431450}
   - {fileID: 677927345}
   - {fileID: 167333072}
   - {fileID: 283323240}
   - {fileID: 1123594878}
-  - {fileID: 1957431450}
   - {fileID: 518358182}
   - {fileID: 1037037256}
   - {fileID: 1128083214}
@@ -33987,7 +33987,7 @@ Transform:
   - {fileID: 2062972277}
   - {fileID: 366807675}
   m_Father: {fileID: 1752677124}
-  m_RootOrder: 186
+  m_RootOrder: 182
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1970299471 stripped
 Transform:
@@ -36677,7 +36677,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 24715b2892135ee45a48162e3c01a0f1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
