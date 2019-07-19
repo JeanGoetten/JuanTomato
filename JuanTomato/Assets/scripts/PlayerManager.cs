@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour
 {
     public GameObject camera; 
+    public GameObject explosion; 
     Transform lastSave; 
     private int sal = 0; 
     private void Start() {
-        transform.position = new Vector3(0f, 0f, 0f); 
+        //transform.position = new Vector3(0f, 0f, 0f); 
 
         DontDestroyOnLoad(this.gameObject); 
         DontDestroyOnLoad(camera); 
@@ -62,14 +63,17 @@ public class PlayerManager : MonoBehaviour
         }
         if(other.gameObject.tag == "enemy")
         {
+            Instantiate(explosion, transform.position, Quaternion.identity);
             this.transform.position = lastSave.position;
         }
         if(other.gameObject.tag == "palito")
         {
+            Instantiate(explosion, transform.position, Quaternion.identity);
             this.transform.position = lastSave.position;
         }
         if(other.gameObject.tag == "saw")
-        {
+        {   
+            Instantiate(explosion, transform.position, Quaternion.identity);
             this.transform.position = lastSave.position;
         }
     }

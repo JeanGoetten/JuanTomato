@@ -60,6 +60,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 2178902497
+    locked: 0
+  - name: Back
+    uniqueID: 2548031559
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: CheckPoint
+    uniqueID: 2557457699
+    locked: 0
+  - name: Player
+    uniqueID: 2907432673
+    locked: 0
+  - name: Chuva
+    uniqueID: 1514290233
     locked: 0

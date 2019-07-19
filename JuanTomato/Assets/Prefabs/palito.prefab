@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5999268057664483449}
   - component: {fileID: 6173446015493755870}
   m_Layer: 0
-  m_Name: palito 1
+  m_Name: palito
   m_TagString: palito
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1746935737
+  m_SortingLayer: -1
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: e77f0a849063f8046b48e2552e87418e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3448294583ec243b38868696d9d9ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 10
 --- !u!50 &6173446015493755870
 Rigidbody2D:
   serializedVersion: 4

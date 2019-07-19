@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System; 
+using UnityEngine;
 using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
@@ -30,10 +31,12 @@ public class PlayerController : MonoBehaviour
 
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
+	Animator anim; 
 
 	private void Awake()
 	{
 		m_JumpForce = Jumper; 
+		anim = GetComponent<Animator>(); 
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
 		if (OnLandEvent == null)
@@ -111,7 +114,7 @@ public class PlayerController : MonoBehaviour
 			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 			// And then smoothing it out and applying it to the character
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
-
+			anim.SetFloat("walk", Math.Abs(move)); 
 			// If the input is moving the player right and the player is facing left...
 			if (move > 0 && !m_FacingRight)
 			{
@@ -131,6 +134,11 @@ public class PlayerController : MonoBehaviour
 			// Add a vertical force to the player.
 			m_Grounded = false;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+		}
+		if(m_Grounded){
+			anim.SetBool("jump", false); 
+		}else{
+			anim.SetBool("jump", true); 
 		}
 	}
 
