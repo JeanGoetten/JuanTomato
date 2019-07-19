@@ -17,19 +17,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fase1.unity
     guid: 6c88db6d34edbda468e5cd2ed197eb93
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Fase2.unity
     guid: 6434d93b7445a7d44abd5d922fc27136
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Fase3.unity
     guid: 1406527e328f08241b496b14972e060d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Fase4.unity
     guid: a6d872d406c617b40b7e96571d74502d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Fase5.unity
     guid: e6edbe02427300a4d906137b6828b4ff
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Fase6.unity
     guid: 699b6b93552807c4c9ee7b05fd74932f
   - enabled: 1

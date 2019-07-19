@@ -26,6 +26,7 @@ TagManager:
   - superJump
   - AzeiteVaporZone
   - cheese
+  - almondega
   layers:
   - Default
   - TransparentFX
@@ -38,7 +39,7 @@ TagManager:
   - Player
   - Enemies
   - Saw
-  - 
+  - Ground
   - 
   - 
   - 

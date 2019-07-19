@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour
     Transform lastSave; 
     private int sal = 0; 
     private void Start() {
-        //transform.position = new Vector3(0f, 0f, 0f); 
+        transform.position = new Vector3(0f, 0f, 0f); 
 
         DontDestroyOnLoad(this.gameObject); 
         DontDestroyOnLoad(camera); 
@@ -27,8 +27,11 @@ public class PlayerManager : MonoBehaviour
         }
         if(other.gameObject.tag == "finish")
         {
-            SceneManager.LoadScene("Fase2"); 
+            Destroy(camera); 
+            SceneManager.LoadScene("Final"); 
             transform.position = new Vector3(0f, 0f, 0f); 
+            // SceneManager.LoadScene("Fase2"); 
+            // transform.position = new Vector3(0f, 0f, 0f); 
         }
         if(other.gameObject.tag == "finish2")
         {
@@ -73,6 +76,13 @@ public class PlayerManager : MonoBehaviour
         }
         if(other.gameObject.tag == "saw")
         {   
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            this.transform.position = lastSave.position;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.collider.tag == "almondega")
+        {
             Instantiate(explosion, transform.position, Quaternion.identity);
             this.transform.position = lastSave.position;
         }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5658065353470733137}
   - component: {fileID: 5658065353470733136}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FXZone
   m_TagString: superJump
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 5658065354635853284}
   - component: {fileID: 5658065354635853285}
   - component: {fileID: 5658065354635853287}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ketchup
   m_TagString: ketchup
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5658065354989681761}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: KetchupJumper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,11 +208,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5658065354989681761}
     m_Modifications:
-    - target: {fileID: 5547030497036751586, guid: 53b194e013c1b9e4aab1c5df01df7957,
-        type: 3}
-      propertyPath: m_Name
-      value: ketchup
-      objectReference: {fileID: 0}
     - target: {fileID: 5547030497036751584, guid: 53b194e013c1b9e4aab1c5df01df7957,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -277,6 +272,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1.0000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547030497036751586, guid: 53b194e013c1b9e4aab1c5df01df7957,
+        type: 3}
+      propertyPath: m_Name
+      value: ketchup
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547030497036751586, guid: 53b194e013c1b9e4aab1c5df01df7957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53b194e013c1b9e4aab1c5df01df7957, type: 3}
