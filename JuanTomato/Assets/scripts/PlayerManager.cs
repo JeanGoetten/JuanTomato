@@ -9,14 +9,19 @@ public class PlayerManager : MonoBehaviour
     public GameObject explosion; 
     Transform lastSave; 
     private int sal = 0; 
+    private int mortes = 0; 
     AudioSource audioSource; 
     public AudioClip respawFX;
     public AudioClip finishFX;
     public AudioClip salFX;
+    Rigidbody2D rb; 
+    static public float MoveSmoot;
+
     private void Start() {
         transform.position = new Vector3(0f, 0f, 0f); 
 
         audioSource = GetComponent<AudioSource>(); 
+        rb = GetComponent<Rigidbody2D>(); 
 
         DontDestroyOnLoad(this.gameObject); 
         DontDestroyOnLoad(camera); 
@@ -78,14 +83,32 @@ public class PlayerManager : MonoBehaviour
         {
             audioSource.PlayOneShot(respawFX, 0.7f); 
 
+            mortes++; 
+            print("Mortes: " + mortes); 
+
             Instantiate(explosion, transform.position, Quaternion.identity);
             this.transform.position = lastSave.position;
+        }
+        if(other.gameObject.tag == "oleo")
+        {
+            MoveSmoot = 3f; 
+            rb.gravityScale = 1f; 
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other) {
+        if(other.gameObject.tag == "oleo")
+        {
+            MoveSmoot = 0f; 
+            rb.gravityScale = 6f; 
         }
     }
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.collider.tag == "almondega")
         {
             audioSource.PlayOneShot(respawFX, 0.7f); 
+
+            mortes++; 
+            print("Mortes: " + mortes); 
 
             Instantiate(explosion, transform.position, Quaternion.identity);
             this.transform.position = lastSave.position;
